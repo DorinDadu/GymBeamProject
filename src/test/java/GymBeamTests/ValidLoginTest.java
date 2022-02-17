@@ -4,7 +4,7 @@ import Baza1.sharedData;
 import Page.LoginPage;
 import org.junit.Test;
 
-public class LoginTest extends sharedData {
+public class ValidLoginTest extends sharedData {
 
     public LoginPage loginPage;
         @Test
