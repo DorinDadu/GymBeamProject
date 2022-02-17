@@ -20,7 +20,9 @@ public class sharedData {
 
     }
 
-   //@After
+   @After
 
-    //public void tearDown(){driver.quit();}
+    public void tearDown(){
+        //driver.quit();
+    }
 }
