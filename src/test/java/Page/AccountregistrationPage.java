@@ -1,42 +1,36 @@
 package Page;
 
-import Help.ElementMethods;
-import Help.PageMethods;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class AccountregistrationPage {
+import java.util.HashMap;
 
-    public WebDriver driver;
-    public ElementMethods elementMethods;
+public class AccountregistrationPage extends BasePage{
 
-    public AccountregistrationPage(WebDriver driver){
-        this.driver = driver;
-        elementMethods = new ElementMethods(driver);
-        PageFactory.initElements(driver, this);
-    }
+
+    public AccountregistrationPage(WebDriver driver){super(driver);}
+
     @FindBy(css = "li>div>div>a[href='https://gymbeam.ro/customer/account/login/']")
-    public WebElement autentificareElement;
+    private WebElement autentificareElement;
     @FindBy(xpath = "//*[@id=\"maincontent\"]/div[3]/div/div[2]/div[1]/div[2]/div/div/a")
-    public WebElement crearecontElement;
+    private WebElement crearecontElement;
     @FindBy(id = "email_address")
-    public WebElement emailElement;
+    private WebElement emailElement;
     @FindBy(id = "firstname")
-    public WebElement firstnameElement;
+    private WebElement firstnameElement;
     @FindBy(id = "lastname")
-    public WebElement lastnameElement;
+    private WebElement lastnameElement;
     @FindBy(id = "password")
-    public WebElement passwordElement;
+    private WebElement passwordElement;
     @FindBy(id = "gender")
-    public WebElement genderElement;
+    private WebElement genderElement;
     @FindBy(id = "password-confirmation")
-    public WebElement confirmpasswordElement;
+    private WebElement confirmpasswordElement;
     @FindBy(id = "is_subscribed")
-    public WebElement newsletterElement;
+    private WebElement newsletterElement;
     @FindBy(css = "form>div>div>[type='submit']")
-    public WebElement submitElement;
+    private WebElement submitElement;
 
     public void clickAutentificare(){
         elementMethods.clickElement(autentificareElement);
@@ -67,6 +61,20 @@ public class AccountregistrationPage {
     }
     public void clickSubmit(){
         elementMethods.clickElement(submitElement);
+    }
+
+    public void registerValidProcess(HashMap<String, String> inputData){
+        clickAutentificare();
+        clickCrearecont();
+        fillFirstname(inputData.get("firstName"));
+        fillEmail(inputData.get("email"));
+        fillLastname(inputData.get("lastName"));
+        fillPassword(inputData.get("password"));
+        fillGender(inputData.get("gender"));
+        pageMethods.scrollElement("window.scrollBy(0,400)");
+        fillConfirmpassword(inputData.get("confirmPassword"));
+        clicknewsletter();
+        clickSubmit();
     }
 
 }

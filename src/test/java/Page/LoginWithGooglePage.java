@@ -1,28 +1,24 @@
 package Page;
 
-import Help.ElementMethods;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class LoginWithGooglePage {
+import java.util.HashMap;
 
-    public WebDriver driver;
-    public ElementMethods elementMethods;
+public class LoginWithGooglePage extends BasePage{
 
-    public LoginWithGooglePage(WebDriver driver) {
-        this.driver = driver;
-        elementMethods = new ElementMethods(driver);
-        PageFactory.initElements(driver, this);
-    }
+
+
+    public LoginWithGooglePage(WebDriver driver) {super(driver);}
+
 
     @FindBy(xpath = "//*[@id=\"maincontent\"]/div[3]/div/div[2]/div[2]/div/div/div[1]/div/a")
-    public WebElement loginwithGoogleElement;
+    private WebElement loginwithGoogleElement;
     @FindBy(css = "input[type='email']")
-    public WebElement emailElement;
+    private WebElement emailElement;
     @FindBy(xpath = "//*[@id=\"identifierNext\"]/div/button/span")
-    public WebElement submitElement;
+    private WebElement submitElement;
 
     public void loginwithGoogle(){
         elementMethods.clickElement(loginwithGoogleElement);
@@ -32,5 +28,11 @@ public class LoginWithGooglePage {
     }
     public void clicksubmit(){
         elementMethods.clickElement(submitElement);
+    }
+
+    public void loginwithGoogleProcess(HashMap<String, String> inputData){
+        loginwithGoogle();
+        fillEmail(inputData.get("email"));
+        clicksubmit();
     }
 }

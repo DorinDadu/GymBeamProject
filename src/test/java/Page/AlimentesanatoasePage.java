@@ -1,34 +1,27 @@
 package Page;
 
-import Help.ElementMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class AlimentesanatoasePage {
-    public WebDriver driver;
-    public ElementMethods elementMethods;
+public class AlimentesanatoasePage extends BasePage{
 
-    public AlimentesanatoasePage(WebDriver driver) {
-        this.driver = driver;
-        elementMethods = new ElementMethods(driver);
-        PageFactory.initElements(driver, this);
-    }
+    public AlimentesanatoasePage(WebDriver driver) {super(driver);}
+
 
     @FindBy(css = "a[href='/alimente-sanatoase']")
-    public WebElement alimenteSanatoaseElement;
+    private WebElement alimenteSanatoaseElement;
     @FindBy(css = "a[href='/cereale-si-musli']")
-    public WebElement cerealeMusliElement;
+    private WebElement cerealeMusliElement;
     @FindBy(css = "[class='span3']")
-    public WebElement acceptCookieElement;
+    private WebElement acceptCookieElement;
     @FindBy(css = "a[href='https://gymbeam.ro/checkout/cart/")
-    public WebElement checkcartElement;
+    private WebElement checkcartElement;
     @FindBy(css = "td>div>a[href='#']")
-    public WebElement cleancartElement;
+    private WebElement cleancartElement;
 
 
     public void movetoAlimentesanatoase(){
