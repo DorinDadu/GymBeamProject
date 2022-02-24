@@ -1,7 +1,6 @@
 package GymBeamTests;
 
 import Baza1.Hooks;
-import Page.IndexPage;
 import Page.LoginPage;
 import org.junit.Test;
 

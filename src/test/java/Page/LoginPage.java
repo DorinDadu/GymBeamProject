@@ -20,6 +20,8 @@ public class LoginPage extends BasePage{
     private WebElement passwordElement;
     @FindBy(id = "send2")
     private WebElement submitElement;
+    @FindBy(xpath = "//*[@id=\"maincontent\"]/div[2]/div[2]/div/div/div")
+    private WebElement errorMessageElement;
 
     public void clickLogin(){elementMethods.clickElement(loginElement);}
     public void filluserName(String value) {elementMethods.fillElement(userNameElement, value);}
@@ -32,6 +34,13 @@ public class LoginPage extends BasePage{
         fillPassword(inputData.get("password"));
         clickEnter();
 
+    }
+
+    public void invalidLoginprocess(HashMap<String, String> inputData){
+        clickLogin();
+        filluserName(inputData.get("userName"));
+        elementMethods.clickElement(submitElement);
+        elementMethods.validateElementText(errorMessageElement, inputData.get("errorMsg"));
     }
 
 }
