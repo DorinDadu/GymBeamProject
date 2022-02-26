@@ -6,11 +6,11 @@ import org.junit.Test;
 
 public class ValidLoginTest extends Hooks {
     public LoginPage loginPage;
-        @Test
 
-        public void loginflow() {
-            loginPage= new LoginPage(getDriver());
-            loginPage.loginValidProcess(inputData);
-        }
+    @Test
+    public void loginflow() {
+        loginPage = new LoginPage(getDriver());
+        loginPage.loginValidProcess(inputData);
     }
+}
 

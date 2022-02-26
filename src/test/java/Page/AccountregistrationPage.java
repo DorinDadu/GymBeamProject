@@ -6,10 +6,12 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.HashMap;
 
-public class AccountregistrationPage extends BasePage{
+public class AccountregistrationPage extends BasePage {
 
 
-    public AccountregistrationPage(WebDriver driver){super(driver);}
+    public AccountregistrationPage(WebDriver driver) {
+        super(driver);
+    }
 
     @FindBy(css = "li>div>div>a[href='https://gymbeam.ro/customer/account/login/']")
     private WebElement autentificareElement;
@@ -32,38 +34,47 @@ public class AccountregistrationPage extends BasePage{
     @FindBy(css = "form>div>div>[type='submit']")
     private WebElement submitElement;
 
-    public void clickAutentificare(){
+    public void clickAutentificare() {
         elementMethods.clickElement(autentificareElement);
     }
-    public void clickCrearecont(){
+
+    public void clickCrearecont() {
         elementMethods.clickElement(crearecontElement);
     }
-    public void fillEmail(String value){
+
+    public void fillEmail(String value) {
         elementMethods.fillElement(emailElement, value);
     }
-    public void fillFirstname(String value){
+
+    public void fillFirstname(String value) {
         elementMethods.fillElement(firstnameElement, value);
     }
-    public void fillLastname(String value){
+
+    public void fillLastname(String value) {
         elementMethods.fillElement(lastnameElement, value);
     }
-    public void fillPassword(String value){
+
+    public void fillPassword(String value) {
         elementMethods.fillElement(passwordElement, value);
     }
-    public void fillGender(String value){
-        elementMethods.fillElement(genderElement,value);
+
+    public void fillGender(String value) {
+        elementMethods.fillElement(genderElement, value);
     }
-    public void fillConfirmpassword(String value){
+
+    public void fillConfirmpassword(String value) {
         elementMethods.fillElement(confirmpasswordElement, value);
     }
-    public void clicknewsletter(){
+
+    public void clicknewsletter() {
         elementMethods.clickElement(newsletterElement);
     }
-    public void clickSubmit(){
+
+    public void clickSubmit() {
         elementMethods.clickElement(submitElement);
     }
 
-    public void registerValidProcess(HashMap<String, String> inputData){
+    public void registerValidProcess(HashMap<String, String> inputData) {
         clickAutentificare();
         clickCrearecont();
         fillFirstname(inputData.get("firstName"));
@@ -71,7 +82,7 @@ public class AccountregistrationPage extends BasePage{
         fillLastname(inputData.get("lastName"));
         fillPassword(inputData.get("password"));
         fillGender(inputData.get("gender"));
-        pageMethods.scrollElement("window.scrollBy(0,400)");
+        pageMethods.scrollElement(0,400);
         fillConfirmpassword(inputData.get("confirmPassword"));
         clicknewsletter();
         clickSubmit();

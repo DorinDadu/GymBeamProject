@@ -9,12 +9,10 @@ public class LoginWithFacebookTest extends Hooks {
     public IndexPage indexPage;
     public LoginWithFacebookPage loginWithFacebookPage;
 
-
     @Test
-
-    public void loginwithFacebookTest(){
-        indexPage=new IndexPage(getDriver());
-        loginWithFacebookPage=new LoginWithFacebookPage(getDriver());
+    public void loginwithFacebookTest() {
+        indexPage = new IndexPage(getDriver());
+        loginWithFacebookPage = new LoginWithFacebookPage(getDriver());
 
         indexPage.clickSkipLogin();
         loginWithFacebookPage.loginWithFacebook();

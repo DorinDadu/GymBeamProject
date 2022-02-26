@@ -7,27 +7,26 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 
-    public class PageMethods {
-        public WebDriver driver;
+public class PageMethods {
+    public WebDriver driver;
 
-        public PageMethods(WebDriver driver) {
-            this.driver = driver;
-        }
-
-        public void navigatetoURL(String value){
-
-            driver.navigate().to(value);
-            WaitToLoadurl(value);
-        }
-
-        public void WaitToLoadurl(String value){
-            WebDriverWait Wait= new WebDriverWait(driver, Duration.ofSeconds(60));
-            Wait.until(ExpectedConditions.urlToBe(value));
-        }
-
-        public void scrollElement(String value){
-            JavascriptExecutor js=(JavascriptExecutor) driver;
-            js.executeScript(value);
-        }
+    public PageMethods(WebDriver driver) {
+        this.driver = driver;
     }
+
+    public void navigatetoURL(String value) {
+        driver.navigate().to(value);
+        WaitToLoadurl(value);
+    }
+
+    public void WaitToLoadurl(String value) {
+        WebDriverWait Wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+        Wait.until(ExpectedConditions.urlToBe(value));
+    }
+
+    public void scrollElement(int x, int y) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy("+x+","+y+")");
+    }
+}
 

@@ -8,13 +8,13 @@ import org.junit.Test;
 public class AccountRegistrationTest extends Hooks {
     public AccountregistrationPage accountregistrationPage;
     public PageMethods pageMethods;
+
     @Test
+    public void accountregistrationTest() {
+        accountregistrationPage = new AccountregistrationPage(getDriver());
+        pageMethods = new PageMethods(getDriver());
 
-    public void accountregistrationTest(){
-       accountregistrationPage= new AccountregistrationPage(getDriver());
-       pageMethods =new PageMethods(getDriver());
-
-      accountregistrationPage.registerValidProcess(inputData);
+        accountregistrationPage.registerValidProcess(inputData);
     }
 }
 

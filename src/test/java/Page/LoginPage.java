@@ -6,11 +6,12 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.HashMap;
 
-public class LoginPage extends BasePage{
+public class LoginPage extends BasePage {
 
 
-    public LoginPage(WebDriver driver) {super(driver);}
-
+    public LoginPage(WebDriver driver) {
+        super(driver);
+    }
 
     @FindBy(id = "header-links-component")
     private WebElement loginElement;
@@ -23,12 +24,23 @@ public class LoginPage extends BasePage{
     @FindBy(xpath = "//*[@id=\"maincontent\"]/div[2]/div[2]/div/div/div")
     private WebElement errorMessageElement;
 
-    public void clickLogin(){elementMethods.clickElement(loginElement);}
-    public void filluserName(String value) {elementMethods.fillElement(userNameElement, value);}
-    public void fillPassword(String value) {elementMethods.fillElement(passwordElement, value);}
-    public void clickEnter(){elementMethods.clickElement(submitElement);}
+    public void clickLogin() {
+        elementMethods.clickElement(loginElement);
+    }
 
-    public void loginValidProcess(HashMap<String, String> inputData){
+    public void filluserName(String value) {
+        elementMethods.fillElement(userNameElement, value);
+    }
+
+    public void fillPassword(String value) {
+        elementMethods.fillElement(passwordElement, value);
+    }
+
+    public void clickEnter() {
+        elementMethods.clickElement(submitElement);
+    }
+
+    public void loginValidProcess(HashMap<String, String> inputData) {
         clickLogin();
         filluserName(inputData.get("userName"));
         fillPassword(inputData.get("password"));
@@ -36,7 +48,7 @@ public class LoginPage extends BasePage{
 
     }
 
-    public void invalidLoginprocess(HashMap<String, String> inputData){
+    public void invalidLoginprocess(HashMap<String, String> inputData) {
         clickLogin();
         filluserName(inputData.get("userName"));
         elementMethods.clickElement(submitElement);
