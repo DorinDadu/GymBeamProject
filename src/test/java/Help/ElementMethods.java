@@ -1,11 +1,11 @@
 package Help;
 
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -47,14 +47,9 @@ public class ElementMethods {
         Assert.assertEquals("textul cautat nu e corect", value, actualmsg);
     }
 
-    public void selectElementBytext(WebElement element, String value) {
-        Select dropdown = new Select(element);
-        dropdown.selectByVisibleText(value);
-    }
-
-    public void selectElementByvalue(WebElement element, String value) {
-        Select dropdown = new Select(element);
-        dropdown.selectByValue(value);
+    public void scrollElement(int x, int y) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy("+x+","+y+")");
     }
 
 

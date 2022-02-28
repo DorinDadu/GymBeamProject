@@ -82,7 +82,7 @@ public class AccountregistrationPage extends BasePage {
         fillLastname(inputData.get("lastName"));
         fillPassword(inputData.get("password"));
         fillGender(inputData.get("gender"));
-        pageMethods.scrollElement(0,400);
+        elementMethods.scrollElement(0,400);
         fillConfirmpassword(inputData.get("confirmPassword"));
         clicknewsletter();
         clickSubmit();

@@ -12,13 +12,16 @@ public class LoginWithGooglePage extends BasePage {
     public LoginWithGooglePage(WebDriver driver) {
         super(driver);
     }
-
+    @FindBy(css = "li>div>div>a[href='https://gymbeam.ro/customer/account/login/']")
+    private WebElement skipLoginElement;
     @FindBy(xpath = "//*[@id=\"maincontent\"]/div[3]/div/div[2]/div[2]/div/div/div[1]/div/a")
     private WebElement loginwithGoogleElement;
     @FindBy(css = "input[type='email']")
     private WebElement emailElement;
     @FindBy(xpath = "//*[@id=\"identifierNext\"]/div/button/span")
     private WebElement submitElement;
+
+    public void clickSkipLogin(){elementMethods.clickElement(skipLoginElement);}
 
     public void loginwithGoogle() {
         elementMethods.clickElement(loginwithGoogleElement);
@@ -33,6 +36,7 @@ public class LoginWithGooglePage extends BasePage {
     }
 
     public void loginwithGoogleProcess(HashMap<String, String> inputData) {
+        clickSkipLogin();
         loginwithGoogle();
         fillEmail(inputData.get("email"));
         clicksubmit();
