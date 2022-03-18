@@ -40,6 +40,12 @@ public class ElementMethods {
         Action.moveToElement(element).perform();
     }
 
+    public void DoubleClickElement(WebElement element) {
+        waitElement(element);
+        Actions actions = new Actions(driver);
+        actions.doubleClick(element).perform();
+    }
+
     public void validateElementText(WebElement element, String value) {
 
         waitElement(element);
@@ -49,7 +55,7 @@ public class ElementMethods {
 
     public void scrollElement(int x, int y) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy("+x+","+y+")");
+        js.executeScript("window.scrollBy(" + x + "," + y + ")");
     }
 
 

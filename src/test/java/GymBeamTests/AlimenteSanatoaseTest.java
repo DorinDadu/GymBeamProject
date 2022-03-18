@@ -10,14 +10,15 @@ public class AlimenteSanatoaseTest extends Hooks {
     @Test
     public void alimentesanatoaseTest() {
         alimentesanatoasePage = new AlimentesanatoasePage(getDriver());
-
         alimentesanatoasePage.movetoAlimentesanatoase();
-        alimentesanatoasePage.clickcerealeMusli();
+        alimentesanatoasePage.clickGustariProteice();
         alimentesanatoasePage.clickacceptCookie();
-        alimentesanatoasePage.cerealeMusliOption(3);
+        alimentesanatoasePage.gustariProteiceOption(3);
+        alimentesanatoasePage.clickMultiplicateProductsNumber();
+        alimentesanatoasePage.clickMultiplicateProductsNumber();
+        alimentesanatoasePage.clickAddToCart();
         alimentesanatoasePage.checkCart();
         alimentesanatoasePage.cleanCart();
-
 
     }
 }
